@@ -6,12 +6,15 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 12:18:42 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/08/26 17:15:35 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/08/27 18:44:28 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+/*------------------------------------*/
+/*  Create new value for environment  */
+/*------------------------------------*/
 char	**env_create_new(void)
 {
 	char	**new_env;
@@ -30,6 +33,9 @@ char	**env_create_new(void)
 	return (new_env);
 }
 
+/*------------------------------------------*/
+/*  Count length of environment (2D array)  */
+/*------------------------------------------*/
 int	env_len(char **env)
 {
 	int	i;
@@ -42,6 +48,9 @@ int	env_len(char **env)
 	return (i);
 }
 
+/*---------------------------------------------*/
+/*  Create new copy of environment (2D array)  */
+/*---------------------------------------------*/
 char	**env_set(char **env)
 {
 	char	**new_env;
@@ -69,6 +78,9 @@ char	**env_set(char **env)
 	return (new_env);
 }
 
+/*---------------------------------*/
+/*  Increase SHLVL in environment  */
+/*---------------------------------*/
 void	env_increase_shlvl(char ***env)
 {
 	char	*name;
@@ -93,6 +105,9 @@ void	env_increase_shlvl(char ***env)
 	}
 }
 
+/*---------------------------------------------*/
+/*  Change the value of OLDPWD in environment  */
+/*---------------------------------------------*/
 void	env_reset_oldpwd(char ***env)
 {
 	char	*name;

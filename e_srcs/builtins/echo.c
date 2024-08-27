@@ -6,13 +6,15 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 19:24:03 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/08/25 13:40:12 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/08/27 18:02:08 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-// Function to check if all characters is equal to "n"
+/*-------------------------------------------------------*/
+/*  Function to check if all characters is equal to "n"  */
+/*-------------------------------------------------------*/
 int	echo_is_all_n(char *arg)
 {
 	int	i;
@@ -31,7 +33,9 @@ int	echo_is_all_n(char *arg)
 	return (1);
 }
 
-// Function to skip "-n" option
+/*--------------------------------*/
+/*  Function to skip "-n" option  */
+/*--------------------------------*/
 int	echo_skip_all_n(char **args, int *i)
 {
 	int	all_n;
@@ -45,7 +49,9 @@ int	echo_skip_all_n(char **args, int *i)
 	return (all_n);
 }
 
-// Function to execute the "echo" command
+/*------------------------------------------*/
+/*  Function to execute the "echo" command  */
+/*------------------------------------------*/
 int	execute_echo(char **args, int *exit_code)
 {
 	int		new_line;

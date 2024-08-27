@@ -6,13 +6,15 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 12:25:43 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/08/21 12:51:13 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/08/27 20:20:57 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-// Check if the argument equals to "cd" (case-insensitive)
+/*-----------------------------------------------------------*/
+/*  Check if the argument equals to "cd" (case-insensitive)  */
+/*-----------------------------------------------------------*/
 int	is_cd(char *arg)
 {
 	if (arg == NULL || ft_strlen(arg) != 2)
@@ -27,7 +29,9 @@ int	is_cd(char *arg)
 	return (1);
 }
 
-// Check if the argument equals to "pwd" (case-insensitive)
+/*------------------------------------------------------------*/
+/*  Check if the argument equals to "pwd" (case-insensitive)  */
+/*------------------------------------------------------------*/
 int	is_pwd(char *arg)
 {
 	if (arg == NULL || ft_strlen(arg) != 3)
@@ -44,7 +48,9 @@ int	is_pwd(char *arg)
 	return (1);
 }
 
-// Check if the argument equals to "env" (case-insensitive)
+/*------------------------------------------------------------*/
+/*  Check if the argument equals to "env" (case-insensitive)  */
+/*------------------------------------------------------------*/
 int	is_env(char *arg)
 {
 	if (arg == NULL || ft_strlen(arg) != 3)
@@ -61,7 +67,9 @@ int	is_env(char *arg)
 	return (1);
 }
 
-// Check if the argument equals to "echo" (case-insensitive)
+/*-------------------------------------------------------------*/
+/*  Check if the argument equals to "echo" (case-insensitive)  */
+/*-------------------------------------------------------------*/
 int	is_echo(char *arg)
 {
 	if (arg == NULL || ft_strlen(arg) != 4)
@@ -80,7 +88,9 @@ int	is_echo(char *arg)
 	return (1);
 }
 
-// Check if the argument is one of the builtin commands
+/*--------------------------------------------------------*/
+/*  Check if the argument is one of the builtin commands  */
+/*--------------------------------------------------------*/
 int	is_builtin(char *arg)
 {
 	if (arg == NULL)

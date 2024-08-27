@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expanding.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ryusupov <ryusupov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 13:53:46 by ryusupov          #+#    #+#             */
-/*   Updated: 2024/08/25 22:29:43 by ryusupov         ###   ########.fr       */
+/*   Updated: 2024/08/27 17:27:05 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static void	get_env_var(char **token, char **env, t_data *data)
 	if (!dollar_ptr || dollar_ptr[1] == '\0' || dollar_ptr[1] == ' ')
 		return ;
 	if (dollar_ptr[1] == '"' || dollar_ptr[1] == '\'')
-		ft_memmove(dollar_ptr, dollar_ptr + 1, strlen(dollar_ptr));
+		ft_memmove(dollar_ptr, dollar_ptr + 1, ft_strlen(dollar_ptr));
 	x = expansion_of_first_token(*token);
 	if (x == -1)
 		return ;

@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   env_var.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ryusupov <ryusupov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 12:19:19 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/08/26 17:26:22 by ryusupov         ###   ########.fr       */
+/*   Updated: 2024/08/27 18:52:44 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-// Find environment variable by name without value
+/*---------------------------------------------------*/
+/*  Find environment variable by name without value  */
+/*---------------------------------------------------*/
 int	env_var_find_no_value(char **env, const char *name)
 {
 	int	name_len;
@@ -29,7 +31,9 @@ int	env_var_find_no_value(char **env, const char *name)
 	return (-1);
 }
 
-// Find environment variable by name with value
+/*------------------------------------------------*/
+/*  Find environment variable by name with value  */
+/*------------------------------------------------*/
 int	env_var_find(char **env, const char *name)
 {
 	int	name_len;
@@ -47,7 +51,9 @@ int	env_var_find(char **env, const char *name)
 	return (-1);
 }
 
-// Create new environment variable string
+/*------------------------------------------*/
+/*  Create new environment variable string  */
+/*------------------------------------------*/
 char	*env_var_create(const char *name, const char *value)
 {
 	char	*new_env_var;
@@ -70,7 +76,9 @@ char	*env_var_create(const char *name, const char *value)
 	return (new_env_var);
 }
 
-// Add new environment variable to the environment
+/*---------------------------------------*/
+/*  Add new variable to the environment  */
+/*---------------------------------------*/
 int	env_var_add(char ***env, char *new_env_var)
 {
 	int		env_len;
@@ -92,7 +100,9 @@ int	env_var_add(char ***env, char *new_env_var)
 	return (0);
 }
 
-// Remove variable from environment
+/*------------------------------------*/
+/*  Remove variable from environment  */
+/*------------------------------------*/
 int	env_var_remove(char ***env, int index)
 {
 	char	**new_env;

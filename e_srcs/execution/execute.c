@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   execute.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ryusupov <ryusupov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 19:20:07 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/08/26 19:10:36 by ryusupov         ###   ########.fr       */
+/*   Updated: 2024/08/27 21:01:52 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+/*-------------------------------------*/
+/*  Handle executing external command  */
+/*-------------------------------------*/
 void	execute_external(t_data *data, t_cmd *cmd)
 {
 	char	*cmd_name;
@@ -25,7 +28,7 @@ void	execute_external(t_data *data, t_cmd *cmd)
 		return ;
 	cmd_name = cmd->cmd_array[0];
 	cmd_path = set_cmd_path(cmd_name);
-	result = is_accessable(cmd_name, &cmd_path, data->env);
+	result = is_accessible(cmd_name, &cmd_path, data->env);
 	if (result == -1)
 		print_wrong_path(cmd_name, data->exit_code);
 	else if (result == 0)
@@ -41,6 +44,9 @@ void	execute_external(t_data *data, t_cmd *cmd)
 	}
 }
 
+/*--------------------------------------*/
+/*  Handle executing builtin functions  */
+/*--------------------------------------*/
 void	execute_builtin(t_data *data, t_cmd *cmd)
 {
 	int	result;
@@ -68,6 +74,9 @@ void	execute_builtin(t_data *data, t_cmd *cmd)
 		return ;
 }
 
+/*-----------------------------------*/
+/*  Handle executing single command  */
+/*-----------------------------------*/
 void	execute_single_command(t_data *data, t_cmd *cmd, t_status status)
 {
 	if (cmd->cmd_array[0] == NULL)
@@ -96,6 +105,9 @@ void	execute_single_command(t_data *data, t_cmd *cmd, t_status status)
 	}
 }
 
+/*--------------------------------------*/
+/*  Handle executing multiple commands  */
+/*--------------------------------------*/
 void	execute_multiple_commands(t_data *data)
 {
 	pid_t	pid;
@@ -125,6 +137,9 @@ void	execute_multiple_commands(t_data *data)
 	update_underscore_var(data, "");
 }
 
+/*--------------------*/
+/*  Handle execution  */
+/*--------------------*/
 void	execute(t_data *data)
 {
 	get_origin_fd(data);

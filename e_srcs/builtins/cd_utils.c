@@ -6,12 +6,15 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 23:18:41 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/08/25 23:57:00 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/08/27 17:36:33 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+/*---------------------------*/
+/*  Set home directory path  */
+/*---------------------------*/
 char	*set_home(void)
 {
 	char	path[PATH_MAX];
@@ -38,6 +41,9 @@ char	*set_home(void)
 	return (home);
 }
 
+/*------------------------------------------------*/
+/*  Expand tilde sign "~" to home directory path  */
+/*------------------------------------------------*/
 int	cd_expand_tilde(char **path)
 {
 	char	*home;
@@ -65,6 +71,9 @@ int	cd_expand_tilde(char **path)
 	return (1);
 }
 
+/*--------------------------------------------*/
+/*  Catch error type and print error message  */
+/*--------------------------------------------*/
 int	cd_error_catcher(char *path)
 {
 	struct stat	sb;

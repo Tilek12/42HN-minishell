@@ -6,12 +6,15 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 15:55:15 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/08/26 00:12:38 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/08/27 20:12:41 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+/*------------------------------------------------------*/
+/*  Create and add new node to redirection linked list  */
+/*------------------------------------------------------*/
 int	new_redir_create(t_redir **redir_list, char *name, t_type type)
 {
 	t_redir	*new_redir;
@@ -32,6 +35,9 @@ int	new_redir_create(t_redir **redir_list, char *name, t_type type)
 	return (0);
 }
 
+/*-------------------------------------------------------*/
+/*  Define redirection type and redirection linked list  */
+/*-------------------------------------------------------*/
 int	new_redir_handler(t_cmd *cmd, char *name, t_type type)
 {
 	int	result;
@@ -61,6 +67,9 @@ int	new_redir_handler(t_cmd *cmd, char *name, t_type type)
 	return (result);
 }
 
+/*-------------------------------------------------------*/
+/*  Handle creating new node in redirection linked list  */
+/*-------------------------------------------------------*/
 int	redir_create(t_cmd *cmd, int index, t_type type)
 {
 	char	*name;
@@ -87,6 +96,9 @@ int	redir_create(t_cmd *cmd, int index, t_type type)
 		return (2);
 }
 
+/*-------------------------*/
+/*  Check for redirection  */
+/*-------------------------*/
 int	redir_check(t_cmd *cmd)
 {
 	int		i;
@@ -116,6 +128,9 @@ int	redir_check(t_cmd *cmd)
 	return (1);
 }
 
+/*----------------------------------*/
+/*  Handle redirection linked list  */
+/*----------------------------------*/
 void	redir_list_handler(t_data *data)
 {
 	t_cmd	*current;

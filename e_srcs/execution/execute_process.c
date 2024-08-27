@@ -6,12 +6,16 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 12:03:24 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/08/26 00:31:29 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/08/27 20:53:51 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+/*----------------------------------------------------*/
+/*  Wait for all child processes and catch exit code  */
+/*  from last child process (aka command)             */
+/*----------------------------------------------------*/
 void	wait_processes(pid_t last_pid, int *last_exit_code)
 {
 	pid_t	pid;
@@ -31,6 +35,9 @@ void	wait_processes(pid_t last_pid, int *last_exit_code)
 	}
 }
 
+/*-------------------------------------------*/
+/*  Close all file descriptors of all pipes  */
+/*-------------------------------------------*/
 void	pipe_close_all(t_cmd *cmd_list)
 {
 	t_cmd	*current;
@@ -46,6 +53,9 @@ void	pipe_close_all(t_cmd *cmd_list)
 	}
 }
 
+/*---------------------------------------------------------*/
+/*  Handle file descriptors of pipes between each command  */
+/*---------------------------------------------------------*/
 void	pipe_redirection_handler(t_data *data, t_cmd *curr_cmd)
 {
 	int		prev_index;
@@ -68,6 +78,9 @@ void	pipe_redirection_handler(t_data *data, t_cmd *curr_cmd)
 	pipe_close_all(cmd_list);
 }
 
+/*----------------------------------------------*/
+/*  Create pipes for every command in pipeline  */
+/*----------------------------------------------*/
 int	pipe_set_all(t_cmd *cmd_list)
 {
 	t_cmd	*current;

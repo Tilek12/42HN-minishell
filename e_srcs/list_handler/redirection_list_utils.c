@@ -6,12 +6,15 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 19:25:36 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/08/24 14:25:31 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/08/27 20:18:23 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+/*----------------------------------*/
+/*  Count redirections in 2D array  */
+/*----------------------------------*/
 int	redir_count(char **args)
 {
 	int	redir_counter;
@@ -28,6 +31,9 @@ int	redir_count(char **args)
 	return (redir_counter);
 }
 
+/*---------------------------------------------*/
+/*  Find last node in redirection linked list  */
+/*---------------------------------------------*/
 t_redir	*redir_list_last(t_redir *head)
 {
 	t_redir	*last;
@@ -42,6 +48,9 @@ t_redir	*redir_list_last(t_redir *head)
 	return (last);
 }
 
+/*-------------------------------------------*/
+/*  Add new node to redirection linked list  */
+/*-------------------------------------------*/
 void	redir_list_add(t_redir *head, t_redir *new)
 {
 	t_redir	*current;
@@ -55,6 +64,9 @@ void	redir_list_add(t_redir *head, t_redir *new)
 	}
 }
 
+/*------------------------------------------------*/
+/*  Save every command argument in command array  */
+/*------------------------------------------------*/
 void	cmd_array_handler(char **args, int *counter, char **cmd_array, \
 							t_status status)
 {
@@ -85,6 +97,9 @@ void	cmd_array_handler(char **args, int *counter, char **cmd_array, \
 	}
 }
 
+/*-------------------------------------------------*/
+/*  Create 2D array for command and its arguments  */
+/*-------------------------------------------------*/
 int	set_cmd_array(t_cmd *cmd)
 {
 	int	cmd_counter;

@@ -6,13 +6,15 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 19:39:28 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/08/25 21:28:43 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/08/27 18:08:59 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-// Check for valid input for unset command
+/*-------------------------------------------*/
+/*  Check for valid input for unset command  */
+/*-------------------------------------------*/
 int	is_valid_unset_value(char *arg)
 {
 	int	i;
@@ -40,7 +42,9 @@ int	is_valid_unset_value(char *arg)
 	return (1);
 }
 
-// Remove varibale from environment if exists
+/*----------------------------------------------*/
+/*  Remove varibale from environment if exists  */
+/*----------------------------------------------*/
 int	unset_var_from_env(char *arg, char ***env)
 {
 	int	i;
@@ -62,7 +66,9 @@ int	unset_var_from_env(char *arg, char ***env)
 	return (0);
 }
 
-// Function to execute the "unset" command
+/*-------------------------------------------*/
+/*  Function to execute the "unset" command  */
+/*-------------------------------------------*/
 int	execute_unset(char **args, char ***env, int *exit_code)
 {
 	int	i;

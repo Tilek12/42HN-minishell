@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   cd.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ryusupov <ryusupov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 15:49:51 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/08/26 19:12:22 by ryusupov         ###   ########.fr       */
+/*   Updated: 2024/08/27 17:59:52 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+/*----------------------------*/
+/*  Change current directory  */
+/*----------------------------*/
 int	change_directory(char *path, int *exit_code)
 {
 	if (ft_strncmp(path, "~", 1) == 0)
@@ -41,6 +44,9 @@ int	change_directory(char *path, int *exit_code)
 	return (1);
 }
 
+/*------------------------------------*/
+/*  Change current directory to home  */
+/*------------------------------------*/
 int	cd_home_dir(char **env, int *exit_code)
 {
 	char	*home;
@@ -55,6 +61,9 @@ int	cd_home_dir(char **env, int *exit_code)
 	return (change_directory(home, exit_code));
 }
 
+/*--------------------------------------------*/
+/*  Change current directory to previous one  */
+/*--------------------------------------------*/
 int	cd_dash_arg(char **env, int *exit_code)
 {
 	char	*prev_dir;
@@ -70,6 +79,9 @@ int	cd_dash_arg(char **env, int *exit_code)
 	return (change_directory(prev_dir, exit_code));
 }
 
+/*------------------------------------------*/
+/*  Function to execute the "echo" command  */
+/*------------------------------------------*/
 int	execute_cd(char **args, char ***env, int *exit_code)
 {
 	char	curr_dir[PATH_MAX];

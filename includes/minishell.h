@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ryusupov <ryusupov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 17:33:37 by ryusupov          #+#    #+#             */
-/*   Updated: 2024/08/26 19:14:40 by ryusupov         ###   ########.fr       */
+/*   Updated: 2024/08/27 21:01:52 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,21 @@
 
 # include "../libft/libft.h"
 
-typedef struct s_data	t_data;
+// typedef struct s_data	t_data;
 
+/*----------------*/
+/*  Process enum  */
+/*----------------*/
+typedef enum s_process
+{
+	INIT,
+	RES,
+	CHILD_PROCESS,
+}			t_process;
+
+/*---------------*/
+/*  Status enum  */
+/*---------------*/
 typedef enum s_status
 {
 	COUNT,
@@ -76,6 +89,9 @@ typedef enum s_status
 	MULTIPLE,
 }			t_status;
 
+/*-------------*/
+/*  Type enum  */
+/*-------------*/
 typedef enum s_type
 {
 	HEREDOC,
@@ -84,6 +100,25 @@ typedef enum s_type
 	APPEND,
 }			t_type;
 
+/*----------------------*/
+/*  Quote_state struct  */
+/*----------------------*/
+typedef struct s_quote_state
+{
+	int		in_single_quote;
+	int		in_double_quote;
+	int		squote;
+	int		dquote;
+	int		i;
+	int		j;
+	int		found_quote;
+	char	quote_char;
+	char	*result;
+}			t_quote_state;
+
+/*----------------------*/
+/*  Redirection struct  */
+/*----------------------*/
 typedef struct s_redir
 {
 	t_type			type;
@@ -91,6 +126,9 @@ typedef struct s_redir
 	struct s_redir	*next;
 }				t_redir;
 
+/*------------------*/
+/*  Command struct  */
+/*------------------*/
 typedef struct s_cmd
 {
 	int				index;
@@ -107,7 +145,9 @@ typedef struct s_cmd
 	struct s_cmd	*next;
 }				t_cmd;
 
-/*---General program struct---*/
+/*-------------------------------*/
+/*  General program Data struct  */
+/*-------------------------------*/
 typedef struct s_data
 {
 	int			fd_stdin;
@@ -120,26 +160,6 @@ typedef struct s_data
 	int			heredoc_fd[2];
 	char		*last_arg;
 }				t_data;
-
-typedef struct s_quote_state
-{
-	int		in_single_quote;
-	int		in_double_quote;
-	int		squote;
-	int		dquote;
-	int		i;
-	int		j;
-	int		found_quote;
-	char	quote_char;
-	char	*result;
-}			t_quote_state;
-
-typedef enum s_process
-{
-	INIT,
-	RES,
-	CHILD_PROCESS,
-}			t_process;
 
 /*-----------SIGNALS----------*/
 void	_init_terminal(void);
@@ -305,7 +325,7 @@ int		pipe_set_all(t_cmd *cmd_list);
 void	pipe_close_all(t_cmd *cmd_list);
 void	pipe_redirection_handler(t_data *data, t_cmd *curr_cmd);
 void	wait_processes(pid_t last_pid, int *last_exit_code);
-int		is_accessable(char *cmd_name, char **cmd_path, char **env);
+int		is_accessible(char *cmd_name, char **cmd_path, char **env);
 int		is_executable(char *cmd_path);
 char	*set_cmd_path(char *str);
 void	print_wrong_command(char *arg, int *exit_code);

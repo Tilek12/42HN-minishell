@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ryusupov <ryusupov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 17:54:56 by ryusupov          #+#    #+#             */
-/*   Updated: 2024/08/17 01:43:43 by ryusupov         ###   ########.fr       */
+/*   Updated: 2024/08/27 18:03:15 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-// Function to execute the "exit" command
+/*------------------------------------------*/
+/*  Function to execute the "exit" command  */
+/*------------------------------------------*/
 void	execute_exit(t_data *data, char **args, int *exit_code)
 {
 	printf("exit\n");

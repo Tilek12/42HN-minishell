@@ -6,12 +6,15 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 12:25:09 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/08/23 21:15:14 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/08/27 18:14:21 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+/*-----------------------*/
+/*  Print error message  */
+/*-----------------------*/
 void	ft_perror(char *msg1, char *arg, char *msg2)
 {
 	write(2, msg1, ft_strlen(msg1));
@@ -22,6 +25,9 @@ void	ft_perror(char *msg1, char *arg, char *msg2)
 	write(2, "\n", 1);
 }
 
+/*--------------------------------------------*/
+/*  Print error message and change exit code  */
+/*--------------------------------------------*/
 void	ft_perror_parsing(char *msg1, char *msg2, char *arg, int *exit_code)
 {
 	char	backtrick;

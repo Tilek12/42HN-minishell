@@ -6,12 +6,15 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 12:17:37 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/08/24 20:35:03 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/08/27 20:28:47 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+/*----------------------------------*/
+/*  Count aguments of each command  */
+/*----------------------------------*/
 int	count_arguments(char **tokens, int index)
 {
 	int	counter;
@@ -25,6 +28,9 @@ int	count_arguments(char **tokens, int index)
 	return (counter);
 }
 
+/*----------------------------------*/
+/*  Count commands in tokens array  */
+/*----------------------------------*/
 int	count_commands(char **tokens)
 {
 	int	counter;
@@ -41,6 +47,9 @@ int	count_commands(char **tokens)
 	return (counter);
 }
 
+/*--------------------------------------------------------*/
+/*  Create 2D array of arguments in commands linked list  */
+/*--------------------------------------------------------*/
 char	**cmd_list_set_args(char **tokens, int len, int index)
 {
 	char	**cmd_args;
@@ -67,6 +76,9 @@ char	**cmd_list_set_args(char **tokens, int len, int index)
 	return (cmd_args);
 }
 
+/*--------------------------------------------------*/
+/*  Create and add new node to command linked list  */
+/*--------------------------------------------------*/
 int	cmd_list_add_new(t_cmd **head, char **tokens, int len, int index)
 {
 	t_cmd	*new_cmd;
@@ -94,6 +106,9 @@ int	cmd_list_add_new(t_cmd **head, char **tokens, int len, int index)
 	return (0);
 }
 
+/*------------------------------*/
+/*  Handle command linked list  */
+/*------------------------------*/
 void	cmd_list_handler(t_data *data)
 {
 	char	**tokens;

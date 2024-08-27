@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   env_value.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ryusupov <ryusupov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 12:19:04 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/08/26 19:11:18 by ryusupov         ###   ########.fr       */
+/*   Updated: 2024/08/27 18:50:07 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+/*-------------------------------------*/
+/*  Get value of environment variable  */
+/*-------------------------------------*/
 char	*env_value_get(char **env, const char *name)
 {
 	int		i;
@@ -31,6 +34,9 @@ char	*env_value_get(char **env, const char *name)
 	return (NULL);
 }
 
+/*----------------------------------------*/
+/*  Delete value of environment variable  */
+/*----------------------------------------*/
 void	env_value_delete(char **env, char *name)
 {
 	int	i;
@@ -48,6 +54,9 @@ void	env_value_delete(char **env, char *name)
 	}
 }
 
+/*----------------------------------------*/
+/*  Change value of environment variable  */
+/*----------------------------------------*/
 void	env_value_change(char **env, const char *name, const char *value)
 {
 	int		i;
@@ -71,6 +80,9 @@ void	env_value_change(char **env, const char *name, const char *value)
 	}
 }
 
+/*-----------------------------------------------*/
+/*  Change value of OLDPWD environment variable  */
+/*-----------------------------------------------*/
 void	env_value_change_oldpwd(char **env, const char *name, const char *value)
 {
 	int		i;
@@ -93,6 +105,9 @@ void	env_value_change_oldpwd(char **env, const char *name, const char *value)
 	}
 }
 
+/*--------------------------------------------------------*/
+/*  Change value of PWD and OLDPWD environment variables  */
+/*--------------------------------------------------------*/
 int	env_value_change_pwd_oldpwd(char *prev_dir, char ***env, int *exit_code)
 {
 	char	curr_dir[PATH_MAX];

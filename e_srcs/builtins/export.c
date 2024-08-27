@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   export.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ryusupov <ryusupov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 12:26:13 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/08/26 19:23:38 by ryusupov         ###   ########.fr       */
+/*   Updated: 2024/08/27 18:06:48 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-// Handle export argument with no value
+/*----------------------------------------*/
+/*  Handle export argument with no value  */
+/*----------------------------------------*/
 int	export_arg_no_value(char *arg, char ***env)
 {
 	char	*name;
@@ -29,7 +31,9 @@ int	export_arg_no_value(char *arg, char ***env)
 	return (0);
 }
 
-// Handle export argument with value
+/*-------------------------------------*/
+/*  Handle export argument with value  */
+/*-------------------------------------*/
 int	export_arg_with_value(char *arg, char *equal_sign, char ***env)
 {
 	char	*name;
@@ -55,7 +59,9 @@ int	export_arg_with_value(char *arg, char *equal_sign, char ***env)
 	return (0);
 }
 
-// Handle export command with arguments
+/*----------------------------------------*/
+/*  Handle export command with arguments  */
+/*----------------------------------------*/
 int	export_with_args(char *arg, char ***env)
 {
 	int		result;
@@ -72,7 +78,9 @@ int	export_with_args(char *arg, char ***env)
 	return (0);
 }
 
-// Handle export command with no arguments
+/*-------------------------------------------*/
+/*  Handle export command with no arguments  */
+/*-------------------------------------------*/
 int	export_no_args(char **env, int *exit_code)
 {
 	char	**sorted_env;
@@ -102,7 +110,9 @@ int	export_no_args(char **env, int *exit_code)
 	return (0);
 }
 
-// Main export command execution function
+/*------------------------------------------*/
+/*  Main export command execution function  */
+/*------------------------------------------*/
 int	execute_export(char **args, char ***env, int *exit_code)
 {
 	int	result;

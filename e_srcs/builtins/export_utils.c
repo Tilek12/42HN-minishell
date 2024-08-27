@@ -6,13 +6,15 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 12:26:05 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/08/25 20:00:33 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/08/27 18:04:19 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-// Set environment variable
+/*----------------------------*/
+/*  Set environment variable  */
+/*----------------------------*/
 int	export_update_env(char ***env, const char *name, const char *value,
 	int overwrite)
 {
@@ -37,7 +39,9 @@ int	export_update_env(char ***env, const char *name, const char *value,
 	return (env_var_add(env, new_env_var));
 }
 
-// Check for valid input for export command
+/*--------------------------------------------*/
+/*  Check for valid input for export command  */
+/*--------------------------------------------*/
 int	is_valid_export_value(char *arg)
 {
 	int	i;

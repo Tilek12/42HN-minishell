@@ -6,12 +6,15 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 12:05:44 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/08/26 00:25:31 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/08/27 21:06:41 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+/*----------------------------------------------*/
+/*  Check if the path leads to executable file  */
+/*----------------------------------------------*/
 int	is_executable(char *cmd_path)
 {
 	if (access(cmd_path, F_OK) == 0)
@@ -25,7 +28,10 @@ int	is_executable(char *cmd_path)
 	return (0);
 }
 
-int	is_accessable(char *cmd_name, char **cmd_path, char **env)
+/*--------------------------------------------*/
+/*  Check if the external command is correct  */
+/*--------------------------------------------*/
+int	is_accessible(char *cmd_name, char **cmd_path, char **env)
 {
 	char	*path;
 	char	**path_array;

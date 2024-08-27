@@ -6,13 +6,15 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 12:19:39 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/08/26 00:19:58 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/08/27 18:21:10 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-// Custom strndup function
+/*---------------------------*/
+/*  Custom strndup function  */
+/*---------------------------*/
 char	*my_strndup(const char *str, int len)
 {
 	char	*new_str;
@@ -31,7 +33,9 @@ char	*my_strndup(const char *str, int len)
 	return (new_str);
 }
 
-// Custom realloc function
+/*---------------------------*/
+/*  Custom realloc function  */
+/*---------------------------*/
 void	*my_realloc(void *ptr, int old_size, int new_size)
 {
 	void	*new_ptr;
@@ -56,7 +60,9 @@ void	*my_realloc(void *ptr, int old_size, int new_size)
 	return (new_ptr);
 }
 
-// Check if the character is a number
+/*--------------------------------------*/
+/*  Check if the character is a number  */
+/*--------------------------------------*/
 int	is_number(char *arg)
 {
 	int	i;
@@ -72,7 +78,9 @@ int	is_number(char *arg)
 	return (1);
 }
 
-// Join 3 strings into 1 and allocate memory for it
+/*----------------------------------------------------*/
+/*  Join 3 strings into 1 and allocate memory for it  */
+/*----------------------------------------------------*/
 char	*my_strjoin(const char *str1, const char *str2, const char *str3)
 {
 	char	*new_str;

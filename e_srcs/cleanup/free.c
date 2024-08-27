@@ -6,12 +6,15 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 12:25:21 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/08/24 14:34:04 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/08/27 18:18:47 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+/*-----------------*/
+/*  Free 2D array  */
+/*-----------------*/
 void	free_array(char **array)
 {
 	int	i;
@@ -28,6 +31,9 @@ void	free_array(char **array)
 	free(array);
 }
 
+/*--------------------------------*/
+/*  Free redirection linked list  */
+/*--------------------------------*/
 void	free_redir_list(t_redir **head)
 {
 	t_redir	*current;
@@ -47,6 +53,9 @@ void	free_redir_list(t_redir **head)
 	*head = NULL;
 }
 
+/*----------------------------*/
+/*  Free command linked list  */
+/*----------------------------*/
 void	free_cmd_list(t_cmd **head)
 {
 	t_cmd	*current;
@@ -70,6 +79,9 @@ void	free_cmd_list(t_cmd **head)
 	*head = NULL;
 }
 
+/*---------------------------------------------------*/
+/*  Free all memory and exit program with exit code  */
+/*---------------------------------------------------*/
 void	free_exit(t_data *data, int exit_code)
 {
 	if (data == NULL)
@@ -82,6 +94,9 @@ void	free_exit(t_data *data, int exit_code)
 	exit(exit_code);
 }
 
+/*-------------------------------------------------------------------------*/
+/*  Free all memory, prient error message and exit program with exit code  */
+/*-------------------------------------------------------------------------*/
 void	free_error_exit(t_data *data, int exit_code, char *error_msg)
 {
 	if (error_msg != NULL)

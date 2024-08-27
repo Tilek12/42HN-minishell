@@ -6,13 +6,15 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 12:18:54 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/08/26 00:22:23 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/08/27 18:46:17 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-// Swap function for quicksort
+/*-------------------------------*/
+/*  Swap function for quicksort  */
+/*-------------------------------*/
 void	swap(char **a, char **b)
 {
 	char	*temp;
@@ -22,7 +24,9 @@ void	swap(char **a, char **b)
 	*b = temp;
 }
 
-// Partition function for quicksort
+/*------------------------------------*/
+/*  Partition function for quicksort  */
+/*------------------------------------*/
 int	partition(char **arr, int low, int high)
 {
 	char	*pivot;
@@ -45,7 +49,9 @@ int	partition(char **arr, int low, int high)
 	return (i + 1);
 }
 
-// Quicksort implementation
+/*----------------------------*/
+/*  Quicksort implementation  */
+/*----------------------------*/
 void	quicksort(char **arr, int low, int high)
 {
 	int	pi;
@@ -58,7 +64,9 @@ void	quicksort(char **arr, int low, int high)
 	}
 }
 
-// Sort environment variables in alphabetic order
+/*--------------------------------------------------*/
+/*  Sort environment variables in alphabetic order  */
+/*--------------------------------------------------*/
 char	**env_sort(char **env)
 {
 	char	**sorted_env;

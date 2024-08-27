@@ -6,12 +6,15 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 12:09:08 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/08/26 17:19:49 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/08/27 20:47:43 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+/*----------------------------------------------------------*/
+/*  Update the value of underscore variable in environment  */
+/*----------------------------------------------------------*/
 void	update_underscore_var(t_data *data, char *value)
 {
 	char	*new_var;
@@ -28,6 +31,9 @@ void	update_underscore_var(t_data *data, char *value)
 		env_value_change(data->env, "_", value);
 }
 
+/*-------------------------------------------------*/
+/*  Run child process for single extarnal command  */
+/*-------------------------------------------------*/
 void	fork_external(t_data *data, t_cmd *cmd)
 {
 	pid_t	pid;
@@ -52,6 +58,9 @@ void	fork_external(t_data *data, t_cmd *cmd)
 		free_error_exit(data, 1, "fork");
 }
 
+/*-------------------------*/
+/*  Set path command path  */
+/*-------------------------*/
 char	*set_cmd_path(char *str)
 {
 	int	i;
@@ -66,12 +75,18 @@ char	*set_cmd_path(char *str)
 	return (NULL);
 }
 
+/*----------------------------------------------------------*/
+/*  Print wrong command error message and change exit code  */
+/*----------------------------------------------------------*/
 void	print_wrong_command(char *arg, int *exit_code)
 {
 	ft_perror("minishell: ", arg, ": command not found");
 	*exit_code = 127;
 }
 
+/*-------------------------------------------------------*/
+/*  Print wrong path error message and change exit code  */
+/*-------------------------------------------------------*/
 void	print_wrong_path(char *arg, int *exit_code)
 {
 	ft_perror("minishell: ", arg, ": No such file or directory");

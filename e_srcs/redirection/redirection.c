@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   redirection.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ryusupov <ryusupov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 11:33:40 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/08/26 17:31:14 by ryusupov         ###   ########.fr       */
+/*   Updated: 2024/08/27 19:04:52 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+/*-----------------------*/
+/*  Get input from file  */
+/*-----------------------*/
 int	redir_input_file(t_redir *redir, int *exit_code)
 {
 	int	fd;
@@ -33,6 +36,9 @@ int	redir_input_file(t_redir *redir, int *exit_code)
 	return (1);
 }
 
+/*--------------------------*/
+/*  Get input from heredoc  */
+/*--------------------------*/
 int	redir_input_heredoc(char *heredoc_input)
 {
 	int	pipe_fd[2];
@@ -58,6 +64,9 @@ int	redir_input_heredoc(char *heredoc_input)
 	return (1);
 }
 
+/*----------------------------*/
+/*  Handle input redirection  */
+/*----------------------------*/
 int	redir_input_handler(t_redir *input_list, char *heredoc_input, \
 							int *exit_code)
 {
@@ -86,6 +95,9 @@ int	redir_input_handler(t_redir *input_list, char *heredoc_input, \
 	return (result);
 }
 
+/*-----------------------------*/
+/*  Handle output redirection  */
+/*-----------------------------*/
 int	redir_output_handler(t_redir *output_list, int *exit_code)
 {
 	t_redir	*current;
@@ -115,6 +127,9 @@ int	redir_output_handler(t_redir *output_list, int *exit_code)
 	return (1);
 }
 
+/*------------------------*/
+/*  Handling redirection  */
+/*------------------------*/
 int	redirection_handler(t_cmd *cmd, int *exit_code)
 {
 	int		result;

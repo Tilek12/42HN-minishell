@@ -6,13 +6,15 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 16:45:53 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/08/26 16:17:28 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/08/27 18:10:50 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-// Length of the 2D array
+/*--------------------------*/
+/*  Length of the 2D array  */
+/*--------------------------*/
 int	array_len(char **array)
 {
 	int	i;
@@ -25,7 +27,9 @@ int	array_len(char **array)
 	return (i);
 }
 
-// Copy 2D array and allocate new memory for it
+/*------------------------------------------------*/
+/*  Copy 2D array and allocate new memory for it  */
+/*------------------------------------------------*/
 char	**array_copy(char **array)
 {
 	char	**new_array;
@@ -53,7 +57,9 @@ char	**array_copy(char **array)
 	return (new_array);
 }
 
-// Get the last argument from 2D array
+/*---------------------------------------*/
+/*  Get the last argument from 2D array  */
+/*---------------------------------------*/
 char	*array_last(char **array)
 {
 	int		len_array;

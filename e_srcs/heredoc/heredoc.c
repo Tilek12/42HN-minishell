@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   heredoc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ryusupov <ryusupov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 16:36:26 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/08/26 16:34:24 by ryusupov         ###   ########.fr       */
+/*   Updated: 2024/08/27 19:00:43 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+/*----------------------*/
+/*  Save heredoc input  */
+/*----------------------*/
 int	heredoc_save_input(t_cmd *cmd, char *line)
 {
 	char	*temp;
@@ -30,6 +33,9 @@ int	heredoc_save_input(t_cmd *cmd, char *line)
 	return (0);
 }
 
+/*---------------------*/
+/*  Get heredoc input  */
+/*---------------------*/
 int	heredoc_readline(t_cmd *cmd, char *delimeter, t_status status, t_data *data)
 {
 	char	*line;
@@ -56,6 +62,9 @@ int	heredoc_readline(t_cmd *cmd, char *delimeter, t_status status, t_data *data)
 	return (0);
 }
 
+/*--------------------*/
+/*  Run all heredocs  */
+/*--------------------*/
 void	heredoc_input_handler(t_data *data, t_cmd *cmd)
 {
 	t_redir	*current;
@@ -82,6 +91,9 @@ void	heredoc_input_handler(t_data *data, t_cmd *cmd)
 	}
 }
 
+/*--------------------*/
+/*  Handling heredoc  */
+/*--------------------*/
 void	heredoc_handler(t_data *data)
 {
 	t_cmd	*current;

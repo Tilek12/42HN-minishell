@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 17:03:23 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/08/16 18:35:56 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/08/27 18:38:16 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,9 @@ static int	calc(char **str, const char **s, char c, int *i)
 	return (1);
 }
 
+/*-----------------------------------------------*/
+/*  Split words from string and create 2D array  */
+/*-----------------------------------------------*/
 char	**split_str(char const *s, char c)
 {
 	char	**str;
