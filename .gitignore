@@ -5,3 +5,5 @@ expand_1.c
 expand_2.c
 removed_functions
 ./test.c
+.git_docs_minishell/
+*.o

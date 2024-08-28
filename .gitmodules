@@ -1,5 +1,3 @@
 [submodule "libft"]
 	path = libft
-	# url = https://github.com/YusuCoder/libft.git
 	url = https://github.com/Tilek12/42HN-libft.git
-	branch = master

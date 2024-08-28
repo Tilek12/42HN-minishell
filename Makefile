@@ -1,3 +1,11 @@
+# ANSI color codes
+RED = \033[0;31m
+GREEN = \033[0;32m
+YELLOW = \033[0;33m
+BLUE = \033[0;34m
+MAGENTA = \033[0;35m
+CYAN = \033[0;36m
+RESET = \033[0m
 
 NAME	:= minishell
 CC		:= cc
@@ -74,8 +82,9 @@ rl:
 
 #IF SUBMODULE IS NOT EXISTS IN THE REPO, FETCH AND UPDATE
 update:
-	@git submodule update --init --recursive	> /dev/null 2>&1
-	@git submodule update --remote --merge	> /dev/null 2>&1
+	@git submodule update --init --recursive > /dev/null 2>&1
+	@git submodule update --remote --merge > /dev/null 2>&1
+	@echo "$(GREEN)libft connected.$(RESET)"
 
 #IF READLINE IS NOT INSTALLED INSTALL IT WITH MAKE LINUX (LINUX ONLY)
 linux: update readline_linux_install $(NAME)
@@ -86,6 +95,7 @@ readline_linux_install:
 
 $(NAME): $(MAIN_OBJ) $(OBJS) $(LIBFT)
 	@$(CC) $(CFLAGS) $^ -o $@ -lreadline
+	@echo "$(GREEN)minishell created.$(RESET)"
 
 $(OBJ_PATH)/%.o: %.c
 	@mkdir -p $(@D)
@@ -100,11 +110,13 @@ $(LIBFT):
 
 clean:
 	@$(RM) $(OBJ_PATH)
-	@$(MAKE) -C $(LIBFT_PATH) clean
+	@$(MAKE) -C $(LIBFT_PATH) clean > /dev/null 2>&1
+	@echo "$(MAGENTA)minishell object files cleaned.$(RESET)"
 
 fclean: clean
 	@$(RM) $(NAME)
-	@$(MAKE) -C $(LIBFT_PATH) fclean
+	@$(MAKE) -C $(LIBFT_PATH) fclean > /dev/null 2>&1
+	@echo "$(MAGENTA)minishell removed.$(RESET)"
 
 re: fclean all
 
