@@ -11,7 +11,7 @@
   </h2>
 </h1>
 
-## :clipboard: Project info: [subject](https://github.com/Tilek12/42HN-philosophers/blob/master/philo/.git_docs_philosophers/en.subject_philosophers.pdf)
+## :clipboard: Project info: [subject](https://github.com/Tilek12/42HN-minishell/blob/master/.git_docs_minishell/minishell_subject.pdf)
 
 ## :trident: Foreword
 
