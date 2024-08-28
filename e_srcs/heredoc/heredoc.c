@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 16:36:26 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/08/27 19:00:43 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/08/28 12:10:27 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	heredoc_save_input(t_cmd *cmd, char *line)
 		temp = my_strjoin(cmd->heredoc_input, line, "\n");
 		if (temp == NULL)
 			free(cmd->heredoc_input);
+		free(cmd->heredoc_input);
 		cmd->heredoc_input = temp;
 	}
 	return (0);
