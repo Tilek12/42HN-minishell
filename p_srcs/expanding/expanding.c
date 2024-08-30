@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 13:53:46 by ryusupov          #+#    #+#             */
-/*   Updated: 2024/08/27 17:27:05 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/08/30 14:35:51 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int	expansion_of_first_token(char *token)
 	int	i;
 
 	i = 0;
-	while (token[i])
+	while (token && token[i])
 	{
 		if (token[i] == '$' && !count_str(token[i]) && not_in_squote(token, i))
 		{
@@ -61,6 +61,8 @@ static void	get_env_var(char **token, char **env, t_data *data)
 	char	*expanded_token;
 	char	*dollar_ptr;
 
+	if (token == NULL || *token == NULL)
+		return ;
 	dollar_ptr = ft_strchr(*token, '$');
 	if (!dollar_ptr || dollar_ptr[1] == '\0' || dollar_ptr[1] == ' ')
 		return ;

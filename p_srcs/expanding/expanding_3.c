@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expanding_3.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ryusupov <ryusupov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 20:17:20 by ryusupov          #+#    #+#             */
-/*   Updated: 2024/08/25 20:12:43 by ryusupov         ###   ########.fr       */
+/*   Updated: 2024/08/30 14:36:33 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	still_dollar_sign_there(char *token)
 	i = 0;
 	check = 0;
 	in_single_quote = 0;
-	while (token[i])
+	while (token && token[i])
 	{
 		if (token[i] == '\'')
 		{

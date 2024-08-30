@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 20:32:28 by ryusupov          #+#    #+#             */
-/*   Updated: 2024/08/27 17:28:21 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/08/30 14:18:58 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	c_leading_quotes(char *token)
 	int	count;
 
 	count = 0;
-	while (token[count] && token[count] == '\"')
+	while (token && token[count] && token[count] == '\"')
 	{
 		count++;
 	}

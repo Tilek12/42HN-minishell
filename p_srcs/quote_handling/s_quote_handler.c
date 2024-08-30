@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 20:30:26 by ryusupov          #+#    #+#             */
-/*   Updated: 2024/08/27 17:28:18 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/08/30 14:33:33 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	count_leading_quotes(char *token)
 	int	count;
 
 	count = 0;
-	while (token[count] && token[count] == '\'')
+	while (token && token[count] && token[count] == '\'')
 	{
 		count++;
 	}
@@ -30,8 +30,10 @@ int	count_trailing_quotes(char *token)
 	int	len;
 
 	count = 0;
+	if (token == NULL)
+		return (0);
 	len = ft_strlen(token);
-	while (len > 0 && token[len - 1] == '\'')
+	while (token && len > 0 && token[len - 1] == '\'')
 	{
 		count++;
 		len--;
@@ -50,6 +52,8 @@ void	count_and_find_quotes(char *token, int *start, int *end)
 	int	right_quotes;
 	int	len;
 
+	if (token == NULL)
+		return ;
 	left_quotes = count_leading_quotes(token);
 	right_quotes = count_trailing_quotes(token);
 	len = ft_strlen(token);
